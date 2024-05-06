@@ -584,6 +584,7 @@ void *libwsclient_handshake_thread(void *ptr) {
 		client->ssl_ctx = SSL_CTX_new(SSLv23_method());
 		client->ssl = SSL_new(client->ssl_ctx);
 		SSL_set_fd(client->ssl, sockfd);
+        SSL_set_tlsext_host_name(client->ssl, host);
 		SSL_connect(client->ssl);
 	}
 #endif
