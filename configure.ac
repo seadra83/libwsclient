@@ -29,11 +29,12 @@ AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([memset socket strstr strchr gettimeofday])
 AC_CHECK_LIB(pthread, pthread_create, [], [
-				       echo "This library requires pthread"
+				       echo "pthread not found, pthread is required..."
 				       exit -1
 				       ])
 AC_CHECK_LIB(ssl, SSL_CTX_new, [], [
-						echo "OpenSSL not found, building without SSL support"
+						echo "OpenSSL not found, OpenSSL is required..."
+                        exit -1
 						])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
